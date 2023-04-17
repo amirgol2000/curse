@@ -22,7 +22,7 @@ class CurseController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -30,7 +30,13 @@ class CurseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        curse::create([
+            'title'=>$request->title,
+            'detail'=>$request->detail,
+            'description'=>$request->description,
+            'price'=>$request->price,
+        ]);
+        return redirect()->route('index');
     }
 
     /**
